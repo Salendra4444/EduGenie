@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SplitAuth.css';
+import { apiUrl } from '../api';
 
 function Signup() {
   useEffect(() => {
@@ -54,7 +55,7 @@ function Signup() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch(apiUrl('/api/auth/signup'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -84,7 +85,7 @@ function Signup() {
     setSuccess('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const response = await fetch(apiUrl('/api/auth/verify-otp'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -116,7 +117,7 @@ function Signup() {
     setSuccess('');
     
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch(apiUrl('/api/auth/signup'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
